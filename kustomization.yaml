@@ -5,4 +5,4 @@ resources:
   - operator
   - serving
   - eventing
-  - helloworld-python.yaml
+  - sample_app/helloworld-python.yaml
