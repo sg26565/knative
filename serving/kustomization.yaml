@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: knative-serving
+
+resources:
+  - namespace.yaml
+  - serving.yaml
+  - https://github.com/knative/net-certmanager/releases/download/knative-v1.13.0/release.yaml
+
+patches:
+  # configure certmanager
+  - patch: |
+      apiVersion: v1
+      kind: ConfigMap
+      metadata:
+        name: config-certmanager
+        namespace: knative-serving
+      data:
+        issuerRef: |
+          kind: ClusterIssuer
+          name: letsencrypt

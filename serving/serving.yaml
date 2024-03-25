@@ -1,0 +1,28 @@
+apiVersion: operator.knative.dev/v1beta1
+kind: KnativeServing
+metadata:
+  name: knative-serving
+
+spec:
+  ingress:
+    kourier:
+      enabled: true
+
+  config:
+    network:
+      ingress-class: kourier.ingress.networking.knative.dev
+      external-domain-tls: Enabled
+      http-protocol: Redirected
+      namespace-wildcard-cert-selector: |
+        matchExpressions:
+          - key: "kubernetes.io/metadata.name"
+            operator: "In"
+            values: ["default"]
+
+    domain:
+      knative.treichels.net: ""
+  
+  services:
+    - name: kourier
+      annotations:
+        external-dns.alpha.kubernetes.io/hostname: "*.knative.treichels.net"
