@@ -14,11 +14,7 @@ spec:
       ingress-class: kourier.ingress.networking.knative.dev
       external-domain-tls: Enabled
       http-protocol: Redirected
-      namespace-wildcard-cert-selector: |
-        matchExpressions:
-          - key: "kubernetes.io/metadata.name"
-            operator: "In"
-            values: ["default"]
+      namespace-wildcard-cert-selector: {}
 
     domain:
       knative.treichels.net: ""
