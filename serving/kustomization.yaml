@@ -6,7 +6,7 @@ namespace: knative-serving
 resources:
   - namespace.yaml
   - serving.yaml
-  - https://github.com/knative/net-certmanager/releases/download/knative-v1.13.0/release.yaml
+  - https://github.com/knative/net-certmanager/releases/download/knative-v1.14.0/release.yaml
 
 patches:
   # configure certmanager
