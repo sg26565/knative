@@ -14,7 +14,7 @@ spec:
       ingress-class: kourier.ingress.networking.knative.dev
       external-domain-tls: Enabled
       http-protocol: Redirected
-      namespace-wildcard-cert-selector:
+      namespace-wildcard-cert-selector: |
         matchExpressions:
         - key: "networking.knative.dev/disableWildcardCert"
           operator: "NotIn"
