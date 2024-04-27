@@ -21,7 +21,16 @@ spec:
 
     domain:
       knative.treichels.net: ""
+
+    features:
+      kubernetes.podspec-persistent-volume-claim: enabled
+      kubernetes.podspec-persistent-volume-write: enabled
   
+    certmanager:
+      issuerRef: |
+        kind: ClusterIssuer
+        name: letsencrypt
+
   services:
     - name: kourier
       annotations:
